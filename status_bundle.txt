@@ -1,0 +1,36 @@
+PROJECT: AgentOS
+PHASE: MVP 1 local-first product slice
+LAST_UPDATED: 2026-04-25 10:05:42
+
+CURRENT_STATE:
+- Product definition exists.
+- Codex-ready onboarding exists.
+- Phase-1 monorepo scaffold exists and dependencies are installed.
+- Node.js LTS and Git were installed on this Windows machine with winget.
+- Workspace typecheck passes across desktop and all core packages.
+- Workspace build passes across desktop and all core packages.
+- Core smoke test passes for policy, scanner, planner, task-store, and status-bundle behavior.
+- Desktop dev flow starts Vite on localhost:5173 and launches Electron processes.
+- Electron repo root handling is aligned to F:\prosjekter\AgentOS.
+- Updated UI mission-control spec has been imported into docs and repo skills.
+- Desktop renderer now uses a 5-region mission-control frame with typed UI phases and guided/advanced display profiles.
+- Task records now carry approval decisions, lifecycle events, and verification checks.
+- Electron preload/main bridge supports updating persisted task records.
+- Approval actions in the right rail persist read-only approval or rework decisions to `.agentos/tasks`.
+- Git has been initialized for the workspace and marked safe for local review commands.
+- Desktop shell can read Git review summary through a constrained Electron IPC endpoint.
+- `scripts/review-local.ps1` reports branch, changed files, and tracked diff stat.
+- MVP 1 product workflow is implemented in code: scan project, create mission plan, persist task, record approval decision, run constrained smoke verification, and review saved evidence.
+- Runtime dock exposes a constrained `Run verification` action backed by `npm run smoke`.
+- MVP product readiness is documented in `docs/03_execution/MVP_1_PRODUCT_READINESS.md`.
+- Electron preload bridge was fixed by switching preload to `preload.cjs`, removing preload Node path usage, and setting Electron `sandbox: false` with `contextIsolation: true`.
+- App now starts/validates local sandbox before project connection is enabled.
+- `scripts/dev.ps1` now fails clearly if port 5173 is already occupied.
+
+NEXT_ACTIONS:
+- Run scripts/dev.ps1 for the required interactive MVP UI pass.
+- Fully quit old Electron/dev processes, restart `scripts/dev.ps1`, confirm header shows `Platform: win32` and sandbox `ready`, then click through project scan, mission input, plan generation, approval decision, Run verification, review package, and verification checklist.
+- Add deeper UI smoke coverage once a browser automation path is selected.
+- Create a curated baseline commit after deciding which historical starter artifacts should remain outside Git.
+- Add real diff detail rendering and command execution policy gates.
+- Begin MVP 2 only after the manual MVP 1 pass succeeds once on this machine.

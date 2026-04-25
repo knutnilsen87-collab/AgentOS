@@ -1,0 +1,15 @@
+Open this repository in Codex and begin with a safe project bootstrap.
+
+Working rules:
+- Read `status_bundle.txt` first.
+- Then read `README_MASTER.md`, `02_PRODUCT/PRD_REQUIREMENTS_v1.md`, `04_ARCHITECTURE_BACKEND/SYSTEM_ARCHITECTURE_v1.md`, and `AGENTS.md`.
+- Distinguish clearly between documented, scaffolded, implemented, verified, and production-ready.
+- Do not invent build or test commands before they exist in the repo.
+- Prefer planning and repo-setup work first.
+- Keep `status_bundle.txt` updated when you complete meaningful milestones.
+
+First requested outcome:
+1. Summarize the project in concrete engineering terms.
+2. Propose a phase-1 implementation plan.
+3. Recommend the smallest safe executable scaffold.
+4. Update `status_bundle.txt` with the new next action.

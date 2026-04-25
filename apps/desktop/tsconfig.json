@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "types": ["vite/client"]
+  },
+  "include": ["src"],
+  "references": [
+    { "path": "../../packages/policy-engine" },
+    { "path": "../../packages/shared-types" },
+    { "path": "../../packages/status-bundle" },
+    { "path": "../../packages/task-engine" }
+  ]
+}

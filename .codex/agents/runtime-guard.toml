@@ -1,0 +1,5 @@
+name = "runtime-guard"
+description = "Checks commands, file changes, and risky proposals against the repo safety model."
+model = "gpt-5.4-mini"
+
+developer_instructions = "Before approving or suggesting risky actions, compare them against 07_POLICY_LEGAL_RISK/SAFETY_AND_APPROVAL_MODEL.md. Default to safer local-first execution."

@@ -1,0 +1,62 @@
+{
+  "name": "agentos_phase1_ui_shell",
+  "version": "1.0.0",
+  "layout": {
+    "regions": [
+      "header",
+      "leftRail",
+      "centerCanvas",
+      "rightRail",
+      "runtimeDock"
+    ]
+  },
+  "uiPhases": [
+    "onboarding",
+    "projectSummary",
+    "missionCompose",
+    "plan",
+    "execution",
+    "review",
+    "verification"
+  ],
+  "displayProfiles": [
+    "guided",
+    "advanced"
+  ],
+  "requiredComponents": [
+    "AppShell",
+    "TopStatusBar",
+    "LeftNavRail",
+    "CenterCanvas",
+    "RightEvidenceRail",
+    "RuntimeDock",
+    "MissionInputCard",
+    "MissionSummaryCard",
+    "ConstraintBar",
+    "ProjectSummaryCard",
+    "ScannerFindingsList",
+    "PlanStepList",
+    "ReviewPackageCard",
+    "ApprovalPanel",
+    "VerificationChecklist"
+  ],
+  "dataContracts": [
+    "ProjectProfile",
+    "MissionDraft",
+    "TaskPlan",
+    "TaskPlanStep",
+    "TaskRunSummary",
+    "ReviewPackage",
+    "VerificationCheck",
+    "ApprovalState",
+    "UiDisplayProfile",
+    "UiPhase"
+  ],
+  "phase1Acceptance": [
+    "main UI uses a stable 5-region frame",
+    "approval mode and risk are always visible",
+    "the user can move through mission, constraints, plan, review, and verification visually",
+    "the right rail acts as evidence and approval zone",
+    "guided and advanced profiles exist without moving the core layout"
+  ]
+}

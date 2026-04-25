@@ -1,0 +1,45 @@
+PROJECT_NAME=ExampleProject
+PROJECT_ROOT=F:\prosjekter\ExampleProject
+SOURCE_OF_TRUTH=README_MASTER.md
+WORKFLOW_MODE=PASTE_DIRECTLY_IN_POWERSHELL
+STATUS_BUNDLE_IS_PRIMARY_DOCUMENT=true
+LAST_UPDATED=2026-04-18 12:00:00
+CURRENT_PHASE=Bootstrap
+LAST_ACTION=Initialized workflow
+LAST_RESULT=PASS
+NEXT_ACTION=Await next PowerShell block
+BUILD_STATUS=UNKNOWN
+COMPILE_STATUS=UNKNOWN
+RUNTIME_STATUS=UNKNOWN
+DB_STATUS=UNKNOWN
+AUTH_STATUS=UNKNOWN
+TEST_STATUS=UNKNOWN
+CI_STATUS=UNKNOWN
+RISKS=
+NOTES=All future PowerShell blocks must update this file.
+
+MACHINE_READABLE_JSON_BEGIN
+{
+  "project_name": "ExampleProject",
+  "project_root": "F:\\prosjekter\\ExampleProject",
+  "source_of_truth": "README_MASTER.md",
+  "workflow_mode": "paste_directly_in_powershell",
+  "status_bundle_is_primary_document": true,
+  "last_updated": "2026-04-18 12:00:00",
+  "current_phase": "Bootstrap",
+  "last_action": "Initialized workflow",
+  "last_result": "PASS",
+  "next_action": "Await next PowerShell block",
+  "build_status": "UNKNOWN",
+  "compile_status": "UNKNOWN",
+  "runtime_status": "UNKNOWN",
+  "db_status": "UNKNOWN",
+  "auth_status": "UNKNOWN",
+  "test_status": "UNKNOWN",
+  "ci_status": "UNKNOWN",
+  "risks": [],
+  "notes": [
+    "All future PowerShell blocks must update this file."
+  ]
+}
+MACHINE_READABLE_JSON_END

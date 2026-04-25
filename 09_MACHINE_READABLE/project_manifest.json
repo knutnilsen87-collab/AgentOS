@@ -1,0 +1,28 @@
+{
+  "project": {
+    "name": "AgentOS",
+    "phase": "phase-1-starter-repo",
+    "status": "phase1_validated_foundation",
+    "owner": "Echo / Norwegian Steel"
+  },
+  "stack": {
+    "workspace": "npm workspaces",
+    "desktop": "Electron + React + TypeScript",
+    "persistence": "filesystem under .agentos",
+    "platform_target": "Windows-first"
+  },
+  "packages": [
+    "@agentos/shared-types",
+    "@agentos/policy-engine",
+    "@agentos/task-engine",
+    "@agentos/project-scanner",
+    "@agentos/task-store",
+    "@agentos/status-bundle"
+  ],
+  "next_actions": [
+    "manual desktop UI walkthrough",
+    "verify task record persistence from UI",
+    "add smoke tests for core packages",
+    "continue first end-to-end task lifecycle"
+  ]
+}

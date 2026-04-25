@@ -1,0 +1,15 @@
+{
+  "pack_name": "Universal Project Bootstrap Standard Pack",
+  "version": "1.0",
+  "generated_utc": "2026-04-18T10:03:01+00:00",
+  "core_workflow": [
+    "One PowerShell block at a time",
+    "Paste directly into pwsh",
+    "Every block updates status_bundle.txt",
+    "status_bundle.txt is the primary running handoff file"
+  ],
+  "recommended_files": [
+    "status_bundle.txt",
+    "README_MASTER.md"
+  ]
+}

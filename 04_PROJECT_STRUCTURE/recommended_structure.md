@@ -1,0 +1,27 @@
+# Recommended Project Structure
+
+<ProjectRoot>/
+  status_bundle.txt
+  README_MASTER.md
+  00_START_HERE/
+  01_VISION_STRATEGY/
+  02_PRODUCT/
+  03_BRAND_DESIGN/
+  04_ARCHITECTURE_BACKEND/
+  05_API_DATABASE/
+  06_CTO_STARTER_REPO/
+  07_POLICY_LEGAL_RISK/
+  08_ADMIN_OPS/
+  09_MACHINE_READABLE/
+  10_ASSETS_REFERENCE/
+  11_ARCHIVE_PREVIOUS_PACKAGES/
+  12_CLEANUP_VERIFICATION/
+  13_COMPILE_READY_BACKEND_V3/
+  14_REPO_HARDENING_EXECUTION/
+
+Use only the folders that make sense for the project.
+For smaller projects, keep at minimum:
+- status_bundle.txt
+- README_MASTER.md
+- 00_START_HERE/
+- 09_MACHINE_READABLE/

@@ -1,0 +1,29 @@
+{
+  "name": "agentos-starter-repo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Desktop-first agentic project operating system starter repo",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  },
+  "scripts": {
+    "dev": "npm run dev --workspace @agentos/desktop",
+    "build": "npm run build:packages && npm run build --workspace @agentos/desktop",
+    "build:packages": "npm run build --workspace @agentos/shared-types && npm run build --workspace @agentos/policy-engine && npm run build --workspace @agentos/project-scanner && npm run build --workspace @agentos/status-bundle && npm run build --workspace @agentos/task-engine && npm run build --workspace @agentos/task-store",
+    "typecheck": "npm run build:packages && npm run typecheck --workspace @agentos/desktop && npm run typecheck:packages",
+    "typecheck:packages": "npm run typecheck --workspace @agentos/shared-types && npm run typecheck --workspace @agentos/policy-engine && npm run typecheck --workspace @agentos/project-scanner && npm run typecheck --workspace @agentos/status-bundle && npm run typecheck --workspace @agentos/task-engine && npm run typecheck --workspace @agentos/task-store",
+    "lint": "npm run lint --workspaces --if-present",
+    "test": "npm run smoke",
+    "smoke": "node scripts/smoke-core.mjs",
+    "doctor": "powershell -ExecutionPolicy Bypass -File ./scripts/doctor.ps1",
+    "setup:dev": "powershell -ExecutionPolicy Bypass -File ./scripts/setup-dev.ps1",
+    "review:local": "powershell -ExecutionPolicy Bypass -File ./scripts/review-local.ps1",
+    "status:update": "powershell -ExecutionPolicy Bypass -File ./scripts/update-status-bundle.ps1",
+    "codex:first-run": "powershell -ExecutionPolicy Bypass -File ./scripts/codex-first-run.ps1"
+  }
+}

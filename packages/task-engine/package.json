@@ -1,0 +1,21 @@
+{
+  "name": "@agentos/task-engine",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Task classification and phase-1 plan generation.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "devDependencies": {
+    "typescript": "latest",
+    "@types/node": "latest"
+  },
+  "dependencies": {
+    "@agentos/policy-engine": "0.1.0",
+    "@agentos/shared-types": "0.1.0"
+  }
+}

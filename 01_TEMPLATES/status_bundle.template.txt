@@ -1,0 +1,43 @@
+PROJECT_NAME=
+PROJECT_ROOT=
+SOURCE_OF_TRUTH=README_MASTER.md
+WORKFLOW_MODE=PASTE_DIRECTLY_IN_POWERSHELL
+STATUS_BUNDLE_IS_PRIMARY_DOCUMENT=true
+LAST_UPDATED=
+CURRENT_PHASE=
+LAST_ACTION=
+LAST_RESULT=
+NEXT_ACTION=
+BUILD_STATUS=UNKNOWN
+COMPILE_STATUS=UNKNOWN
+RUNTIME_STATUS=UNKNOWN
+DB_STATUS=UNKNOWN
+AUTH_STATUS=UNKNOWN
+TEST_STATUS=UNKNOWN
+CI_STATUS=UNKNOWN
+RISKS=
+NOTES=
+
+MACHINE_READABLE_JSON_BEGIN
+{
+  "project_name": "",
+  "project_root": "",
+  "source_of_truth": "README_MASTER.md",
+  "workflow_mode": "paste_directly_in_powershell",
+  "status_bundle_is_primary_document": true,
+  "last_updated": "",
+  "current_phase": "",
+  "last_action": "",
+  "last_result": "",
+  "next_action": "",
+  "build_status": "UNKNOWN",
+  "compile_status": "UNKNOWN",
+  "runtime_status": "UNKNOWN",
+  "db_status": "UNKNOWN",
+  "auth_status": "UNKNOWN",
+  "test_status": "UNKNOWN",
+  "ci_status": "UNKNOWN",
+  "risks": [],
+  "notes": []
+}
+MACHINE_READABLE_JSON_END

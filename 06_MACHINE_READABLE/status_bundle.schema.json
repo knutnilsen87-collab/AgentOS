@@ -1,0 +1,84 @@
+{
+  "type": "object",
+  "properties": {
+    "project_name": {
+      "type": "string"
+    },
+    "project_root": {
+      "type": "string"
+    },
+    "source_of_truth": {
+      "type": "string"
+    },
+    "workflow_mode": {
+      "type": "string"
+    },
+    "status_bundle_is_primary_document": {
+      "type": "boolean"
+    },
+    "last_updated": {
+      "type": "string"
+    },
+    "current_phase": {
+      "type": "string"
+    },
+    "last_action": {
+      "type": "string"
+    },
+    "last_result": {
+      "type": "string",
+      "enum": [
+        "PASS",
+        "FAIL",
+        "UNKNOWN"
+      ]
+    },
+    "next_action": {
+      "type": "string"
+    },
+    "build_status": {
+      "type": "string"
+    },
+    "compile_status": {
+      "type": "string"
+    },
+    "runtime_status": {
+      "type": "string"
+    },
+    "db_status": {
+      "type": "string"
+    },
+    "auth_status": {
+      "type": "string"
+    },
+    "test_status": {
+      "type": "string"
+    },
+    "ci_status": {
+      "type": "string"
+    },
+    "risks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "project_name",
+    "project_root",
+    "source_of_truth",
+    "workflow_mode",
+    "status_bundle_is_primary_document",
+    "current_phase",
+    "last_action",
+    "last_result",
+    "next_action"
+  ]
+}
