@@ -19,6 +19,8 @@
       "@agentos/policy-engine": ["packages/policy-engine/src/index.ts"],
       "@agentos/task-engine": ["packages/task-engine/src/index.ts"],
       "@agentos/project-scanner": ["packages/project-scanner/src/index.ts"],
+      "@agentos/mission-kernel": ["packages/mission-kernel/src/index.ts"],
+      "@agentos/mission-kernel/node": ["packages/mission-kernel/src/node.ts"],
       "@agentos/task-store": ["packages/task-store/src/index.ts"],
       "@agentos/status-bundle": ["packages/status-bundle/src/index.ts"]
     }

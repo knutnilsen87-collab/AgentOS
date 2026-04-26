@@ -2,14 +2,17 @@ import type { VerificationCheck } from '@agentos/shared-types';
 
 interface VerificationChecklistProps {
   checks: VerificationCheck[];
+  compact?: boolean;
 }
 
-export function VerificationChecklist({ checks }: VerificationChecklistProps) {
+export function VerificationChecklist({ checks, compact = false }: VerificationChecklistProps) {
+  const visibleChecks = compact ? checks.slice(0, 2) : checks;
+
   return (
     <section className="rail-section">
       <h2>Verification</h2>
       <ul className="check-list">
-        {checks.map((check) => (
+        {visibleChecks.map((check) => (
           <li key={check.id}>
             <span className={`check-status check-${check.status}`}>{check.status}</span>
             <div>

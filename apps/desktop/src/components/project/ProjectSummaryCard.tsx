@@ -2,12 +2,13 @@ import type { ProjectSummary } from '@agentos/shared-types';
 
 interface ProjectSummaryCardProps {
   summary: ProjectSummary | null;
+  compact?: boolean;
 }
 
-export function ProjectSummaryCard({ summary }: ProjectSummaryCardProps) {
+export function ProjectSummaryCard({ summary, compact = false }: ProjectSummaryCardProps) {
   if (!summary) {
     return (
-      <article className="section-card empty-card">
+      <article className={`section-card empty-card${compact ? ' compact-project-card' : ''}`}>
         <p className="label">Project summary</p>
         <h3>Connect a local project</h3>
         <p>Open a folder to build the first read-only project profile.</p>
@@ -16,7 +17,7 @@ export function ProjectSummaryCard({ summary }: ProjectSummaryCardProps) {
   }
 
   return (
-    <article className="section-card">
+    <article className={`section-card${compact ? ' compact-project-card' : ''}`}>
       <p className="label">Project summary</p>
       <h3>{summary.rootPath}</h3>
       <div className="summary-grid">

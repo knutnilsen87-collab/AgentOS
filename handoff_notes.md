@@ -1,6 +1,33 @@
 # Handoff notes
 
 ## What changed in this version
+- added persistent conversation storage via Electron IPC under `.agentos/conversations`
+- added persistent mission-kernel state storage via Electron IPC under `.agentos/missions`
+- added append-only audit event writes for task saves, mission saves, and agent command calls under `.agentos/audit/events.jsonl`
+- added command intent routing for `/scan`, `/plan`, `/review`, `/verify`, and `/status`
+- ignored the raw `agentos-mission-kernel-package.zip` artifact because the package is now integrated as source
+- wired the bottom command dock to a real Electron IPC command runtime
+- added OpenAI Responses API support in Electron main when `OPENAI_API_KEY` is configured
+- kept a Norwegian local fallback response path when no LLM key is present or the LLM call fails
+- documented optional `OPENAI_API_KEY` and `OPENAI_MODEL` values in `.env.example`
+- kept API keys out of the renderer/preload public surface
+- added `ActiveWorkPanel` to show active task chat and job progress in the center canvas
+- moved full conversation/job visibility out of the bottom dock and into the main workspace
+- kept the bottom conversation dock as a persistent command/input surface
+- integrated `agentos-mission-kernel-package` into the app as `packages/mission-kernel`
+- added `@agentos/mission-kernel` workspace build/typecheck wiring and desktop dependency wiring
+- exposed renderer-safe mission factory/state-machine exports plus node-facing scanner/audit/agent exports
+- wired desktop mission generation, task selection, approval, and verification to mission-kernel state
+- added a mission-kernel card in the phase workspace so state, phase, allowed transitions, and scoped tools are visible
+- extended the core smoke test to verify mission creation and state transitions
+- implemented the requested synthwave palette as CSS design tokens in the desktop shell
+- mapped the palette into existing UI surfaces, buttons, badges, risk states, focus states, and the bottom command dock without adding a decorative palette panel
+- refactored the desktop center canvas into phase-specific views instead of rendering most major cards at once
+- made onboarding calm and action-led, with explicit connect/open/health-check actions
+- made mission compose the dominant center surface and moved project/constraint details into support roles
+- made the right evidence rail phase-aware and compact before plan/review/verification
+- added a persistent bottom conversation/command dock with context strip, quick action chips, task-scoped preview, and multiline input
+- made Guided mode hide more early detail while Advanced mode keeps denser scanner/evidence metadata visible
 - added `npm run mvp:check` as an automated MVP readiness gate
 - added `scripts/mvp-check.ps1` to run doctor, typecheck, build, smoke, local review, and a local dev-server HTTP 200 check
 - added `docs/03_execution/MVP_1_MANUAL_QA.md` for the required human Electron acceptance pass
@@ -51,21 +78,24 @@
 - refreshed README, README_MASTER, and `status_bundle.txt` to match the actual code state
 
 ## Honest current state
-The first MVP product slice is now implemented in code and locally validated: dependencies installed, `scripts/doctor.ps1` passes, `scripts/validate.ps1` passes, the core smoke test passes, and the updated mission-control dev shell serves over Vite. The app now starts local sandbox state before enabling project connection; the Electron preload bridge should show `Platform: win32` in the desktop shell after a full Electron restart. The app can scan a project, generate and persist a task plan, persist an approval decision, run constrained smoke verification from the runtime dock, refresh Git evidence, and save command evidence back into the task record. Automated readiness can now be re-run with `npm run mvp:check`. The remaining unverified item is an interactive manual UI pass where a user clicks through the full MVP workflow in the Electron window.
+The first MVP product slice is now implemented in code and locally validated: dependencies installed, `scripts/doctor.ps1` passes, `scripts/validate.ps1` passes, the core smoke test passes, and the updated mission-control dev shell serves over Vite. The app now starts local sandbox state before enabling project connection; the Electron preload bridge should show `Platform: win32` in the desktop shell after a full Electron restart. The app can scan a project, generate and persist a task plan, persist an approval decision, run constrained smoke verification from the runtime dock, refresh Git evidence, and save command evidence back into the task record. The shell is now calmer and phase-based, with a persistent bottom command dock that remains secondary to mission-control surfaces. Automated readiness can now be re-run with `npm run mvp:check`. The remaining unverified item is an interactive manual UI pass where a user clicks through the full MVP workflow in the Electron window.
 
 ## Exact next operator steps
 1. Run `npm run mvp:check`
 2. Run `powershell -ExecutionPolicy Bypass -File .\scripts\dev.ps1`
 3. Confirm the header shows `Platform: win32`
 4. Confirm sandbox state becomes `ready`
-5. In the desktop shell, open `F:\prosjekter\AgentOS`
-6. Confirm the scan summary renders
-7. Generate a task plan
-8. Click `Approve read-only` or `Request rework`
-9. Click `Run verification`
-10. Confirm command evidence, Git evidence, diff stat, and verification checks update in the UI
-11. Confirm a task record is written and updated under `.agentos\tasks`
-12. Record the result in `docs/03_execution/MVP_1_MANUAL_QA.md`
+5. Confirm onboarding shows only the focused start actions plus compact supporting rails
+6. In the desktop shell, open `F:\prosjekter\AgentOS`
+7. Confirm the project summary phase renders without heavy review content
+8. Continue to mission compose and confirm mission input is the dominant center element
+9. Generate a task plan and confirm only plan/review-relevant surfaces are visible
+10. Click `Approve read-only` or `Request rework`
+11. Click `Run verification`
+12. Confirm command evidence, Git evidence, diff stat, and verification checks update in the UI
+13. Confirm the bottom command dock stays available but secondary
+14. Confirm a task record is written and updated under `.agentos\tasks`
+15. Record the result in `docs/03_execution/MVP_1_MANUAL_QA.md`
 
 ## First milestone after setup
 The desktop shell opens against `F:\prosjekter\AgentOS`, scans a selected folder read-only, generates a reviewable task plan, and writes structured task records into `.agentos\tasks`.

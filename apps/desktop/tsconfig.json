@@ -6,6 +6,7 @@
   },
   "include": ["src"],
   "references": [
+    { "path": "../../packages/mission-kernel" },
     { "path": "../../packages/policy-engine" },
     { "path": "../../packages/shared-types" },
     { "path": "../../packages/status-bundle" },

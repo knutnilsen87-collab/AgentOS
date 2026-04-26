@@ -2,6 +2,7 @@ import { mkdtemp, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import assert from 'node:assert/strict';
+import { createMission, nextAllowedStates, transitionMissionState } from '../packages/mission-kernel/dist/index.js';
 import { getDefaultApprovalMode, classifyTaskRisk, requiresExplicitReview } from '../packages/policy-engine/dist/index.js';
 import { scanProject } from '../packages/project-scanner/dist/index.js';
 import { renderTaskRunBundle } from '../packages/status-bundle/dist/index.js';
@@ -12,10 +13,32 @@ const repoRoot = process.cwd();
 const tempRoot = await mkdtemp(path.join(tmpdir(), 'agentos-smoke-'));
 
 try {
+  const now = new Date().toISOString();
   const approvalMode = getDefaultApprovalMode();
   assert.equal(approvalMode, 'edit-with-approval');
   assert.equal(requiresExplicitReview(approvalMode), true);
   assert.equal(classifyTaskRisk('delete production credentials'), 'high');
+
+  const mission = createMission({
+    id: 'smoke-mission',
+    projectId: 'smoke-project',
+    goal: 'Create a reviewable phase-one task plan',
+    approvalMode: 'REVIEW_BEFORE_WRITE',
+    riskLevel: 'LOW',
+    now
+  });
+  assert.equal(mission.phase, 'UNDERSTAND');
+  assert.equal(mission.state, 'NOT_STARTED');
+  assert.deepEqual(nextAllowedStates('NOT_STARTED'), ['RUNNING', 'BLOCKED', 'FAILED']);
+
+  const runningMission = transitionMissionState(mission, {
+    from: 'NOT_STARTED',
+    to: 'RUNNING',
+    phase: 'PLAN',
+    reason: 'Smoke mission enters planning.'
+  });
+  assert.equal(runningMission.ok, true);
+  assert.equal(runningMission.value.phase, 'PLAN');
 
   const projectSummary = await scanProject(repoRoot);
   assert.equal(projectSummary.rootPath, repoRoot);
@@ -31,7 +54,6 @@ try {
   assert.match(statusBundle, /PROJECT: AgentOS/);
   assert.match(statusBundle, /NEXT_ACTIONS:/);
 
-  const now = new Date().toISOString();
   await saveTaskRecord(
     {
       id: 'smoke-task',

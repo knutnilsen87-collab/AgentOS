@@ -1,6 +1,6 @@
 PROJECT: AgentOS
 PHASE: MVP 1 local-first product slice
-LAST_UPDATED: 2026-04-26 06:27:48
+LAST_UPDATED: 2026-04-26 18:52:56
 
 CURRENT_STATE:
 - Product definition exists.
@@ -30,10 +30,26 @@ CURRENT_STATE:
 - The right evidence rail can refresh Git review evidence from the UI.
 - The review package now renders tracked diff stat evidence.
 - Manual MVP acceptance is tracked in `docs/03_execution/MVP_1_MANUAL_QA.md`.
+- Desktop center canvas is now phase-driven so onboarding, project summary, mission compose, plan, review, and verification render distinct focused surfaces.
+- Guided mode now hides more early evidence/detail while Advanced mode exposes denser metadata without changing the 5-region shell.
+- A persistent bottom conversation/command dock now provides task-aware refinement, quick actions, and future slash-command surface without replacing mission-control cards.
+- The requested synthwave palette is implemented as CSS design tokens and mapped into the existing calm AgentOS shell surfaces, badges, buttons, risk states, and command dock.
+- `agentos-mission-kernel-package` has been integrated as the `@agentos/mission-kernel` workspace package.
+- The desktop app now creates and displays mission-kernel state for generated plans, approval transitions, selected tasks, and verification outcomes.
+- The core smoke test now covers mission creation and mission state transition behavior.
+- The center canvas now includes an active work panel for task chat, job status, mission-kernel state, lifecycle, verification, and command evidence.
+- The bottom conversation dock now behaves as a command/input surface while active chat and job progress live in the center workspace.
+- The command dock is now wired through Electron IPC to an agent command runtime: it uses OpenAI Responses API when `OPENAI_API_KEY` is available and a local Norwegian fallback when it is not.
+- API keys stay in Electron main process environment variables and are not exposed to the renderer.
+- Active conversation history is persisted under `.agentos/conversations`.
+- Mission-kernel state is persisted under `.agentos/missions`.
+- Desktop main now appends audit events for task saves, mission state saves, and agent command calls under `.agentos/audit/events.jsonl`.
+- Command input now routes `/scan`, `/plan`, `/review`, `/verify`, and `/status` to local AgentOS actions before falling back to LLM/runtime response.
 
 NEXT_ACTIONS:
 - Run `npm run mvp:check`, then run `scripts/dev.ps1` for the required interactive MVP UI pass.
-- Fully quit old Electron/dev processes, restart `scripts/dev.ps1`, confirm header shows `Platform: win32` and sandbox `ready`, then click through project scan, mission input, plan generation, approval decision, Run verification, review package, and verification checklist.
+- Fully quit old Electron/dev processes, restart `scripts/dev.ps1`, confirm the calmer phase flow: onboarding actions, project summary, dominant mission compose, plan review, approval/review, verification, and bottom command dock.
+- Manually test slash-command routing and persisted conversation/mission/audit files after a fresh app restart.
 - Add deeper UI smoke coverage once a browser automation path is selected.
 - Add real diff detail rendering and command execution policy gates.
 - Begin MVP 2 only after the manual MVP 1 pass succeeds once on this machine.

@@ -4,9 +4,10 @@ interface ReviewPackageCardProps {
   task: TaskRecord | null;
   bundlePreview: string;
   gitReview: GitReviewSummary | null;
+  compact?: boolean;
 }
 
-export function ReviewPackageCard({ task, bundlePreview, gitReview }: ReviewPackageCardProps) {
+export function ReviewPackageCard({ task, bundlePreview, gitReview, compact = false }: ReviewPackageCardProps) {
   return (
     <article className="section-card">
       <p className="label">Review package</p>
@@ -52,7 +53,7 @@ export function ReviewPackageCard({ task, bundlePreview, gitReview }: ReviewPack
           <p className="empty-state">{gitReview?.error ?? 'No tracked diff stat yet.'}</p>
         )}
       </div>
-      <pre className="bundle-preview">{bundlePreview}</pre>
+      {compact ? null : <pre className="bundle-preview">{bundlePreview}</pre>}
     </article>
   );
 }

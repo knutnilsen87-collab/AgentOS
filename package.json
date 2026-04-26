@@ -14,9 +14,9 @@
   "scripts": {
     "dev": "npm run dev --workspace @agentos/desktop",
     "build": "npm run build:packages && npm run build --workspace @agentos/desktop",
-    "build:packages": "npm run build --workspace @agentos/shared-types && npm run build --workspace @agentos/policy-engine && npm run build --workspace @agentos/project-scanner && npm run build --workspace @agentos/status-bundle && npm run build --workspace @agentos/task-engine && npm run build --workspace @agentos/task-store",
+    "build:packages": "npm run build --workspace @agentos/shared-types && npm run build --workspace @agentos/policy-engine && npm run build --workspace @agentos/project-scanner && npm run build --workspace @agentos/mission-kernel && npm run build --workspace @agentos/status-bundle && npm run build --workspace @agentos/task-engine && npm run build --workspace @agentos/task-store",
     "typecheck": "npm run build:packages && npm run typecheck --workspace @agentos/desktop && npm run typecheck:packages",
-    "typecheck:packages": "npm run typecheck --workspace @agentos/shared-types && npm run typecheck --workspace @agentos/policy-engine && npm run typecheck --workspace @agentos/project-scanner && npm run typecheck --workspace @agentos/status-bundle && npm run typecheck --workspace @agentos/task-engine && npm run typecheck --workspace @agentos/task-store",
+    "typecheck:packages": "npm run typecheck --workspace @agentos/shared-types && npm run typecheck --workspace @agentos/policy-engine && npm run typecheck --workspace @agentos/project-scanner && npm run typecheck --workspace @agentos/mission-kernel && npm run typecheck --workspace @agentos/status-bundle && npm run typecheck --workspace @agentos/task-engine && npm run typecheck --workspace @agentos/task-store",
     "lint": "npm run lint --workspaces --if-present",
     "test": "npm run smoke",
     "smoke": "node scripts/smoke-core.mjs",

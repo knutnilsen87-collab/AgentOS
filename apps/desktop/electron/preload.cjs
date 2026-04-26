@@ -21,8 +21,12 @@ const agentosApi = {
   saveTaskRecord: (record) => ipcRenderer.invoke('agentos:save-task-record', record),
   updateTaskRecord: (record) => ipcRenderer.invoke('agentos:update-task-record', record),
   listTaskRecords: () => ipcRenderer.invoke('agentos:list-task-records'),
+  saveConversation: (payload) => ipcRenderer.invoke('agentos:save-conversation', payload),
+  loadConversation: (id) => ipcRenderer.invoke('agentos:load-conversation', id),
+  saveMissionState: (mission) => ipcRenderer.invoke('agentos:save-mission-state', mission),
   getGitReviewSummary: () => ipcRenderer.invoke('agentos:get-git-review-summary'),
-  runMvpVerification: () => ipcRenderer.invoke('agentos:run-mvp-verification')
+  runMvpVerification: () => ipcRenderer.invoke('agentos:run-mvp-verification'),
+  sendAgentCommand: (command) => ipcRenderer.invoke('agentos:send-agent-command', command)
 };
 
 contextBridge.exposeInMainWorld('agentos', agentosApi);

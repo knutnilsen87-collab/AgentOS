@@ -12,6 +12,7 @@
     "typecheck": "tsc --noEmit -p tsconfig.json"
   },
   "dependencies": {
+    "@agentos/mission-kernel": "0.1.0",
     "@agentos/policy-engine": "0.1.0",
     "@agentos/shared-types": "0.1.0",
     "@agentos/status-bundle": "0.1.0",

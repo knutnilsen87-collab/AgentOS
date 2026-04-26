@@ -2,9 +2,10 @@ import type { ProjectSummary } from '@agentos/shared-types';
 
 interface ScannerFindingsListProps {
   summary: ProjectSummary | null;
+  compact?: boolean;
 }
 
-export function ScannerFindingsList({ summary }: ScannerFindingsListProps) {
+export function ScannerFindingsList({ summary, compact = false }: ScannerFindingsListProps) {
   const findings = summary
     ? [
         `${summary.manifests.length} manifest files found`,
@@ -14,10 +15,10 @@ export function ScannerFindingsList({ summary }: ScannerFindingsListProps) {
     : ['No scanner evidence yet', 'Open a local folder to begin', 'Project profiling stays read-only'];
 
   return (
-    <article className="section-card">
+    <article className={`section-card${compact ? ' scanner-compact' : ''}`}>
       <p className="label">Scanner findings</p>
       <ul className="detail-list">
-        {findings.map((finding) => (
+        {(compact ? findings.slice(0, 2) : findings).map((finding) => (
           <li key={finding}>{finding}</li>
         ))}
       </ul>

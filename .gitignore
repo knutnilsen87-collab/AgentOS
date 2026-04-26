@@ -5,6 +5,7 @@ coverage/
 *.log
 *.tsbuildinfo
 AgentOS_Phase1_Codex_Starter_Repo_v1*.zip
+agentos-mission-kernel-package.zip
 AgentOS_Phase1_Codex_Starter_Repo_v1/
 .env
 .env.local

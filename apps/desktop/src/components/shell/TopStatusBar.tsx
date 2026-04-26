@@ -27,6 +27,14 @@ export function TopStatusBar({
         <p className="eyebrow">AgentOS</p>
         <h1>{projectName}</h1>
         <p className="lede">Mission-control workspace for local, review-first project work.</p>
+        <div className="theme-palette" aria-label="Active AgentOS synthwave palette">
+          <span className="palette-swatch swatch-dark" title="Dark base #00040D" />
+          <span className="palette-swatch swatch-teal" title="Teal #082937" />
+          <span className="palette-swatch swatch-pink" title="Neon pink #FF007F" />
+          <span className="palette-swatch swatch-orange" title="Neon orange #FF4500" />
+          <span className="palette-swatch swatch-cyan" title="Neon cyan #00FFFF" />
+          <span className="palette-swatch swatch-purple" title="Neon purple #800080" />
+        </div>
       </div>
       <div className="status-cluster" aria-label="Current runtime and approval state">
         <span className="status-badge">Phase: {phase}</span>

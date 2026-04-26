@@ -7,10 +7,11 @@ interface AppShellProps {
   leftRail: ReactNode;
   center: ReactNode;
   rightRail: ReactNode;
+  conversationDock: ReactNode;
   runtimeDock: ReactNode;
 }
 
-export function AppShell({ profile, header, leftRail, center, rightRail, runtimeDock }: AppShellProps) {
+export function AppShell({ profile, header, leftRail, center, rightRail, conversationDock, runtimeDock }: AppShellProps) {
   return (
     <div className={`app-shell profile-${profile}`}>
       {header}
@@ -19,6 +20,7 @@ export function AppShell({ profile, header, leftRail, center, rightRail, runtime
         {center}
         {rightRail}
       </main>
+      {conversationDock}
       {runtimeDock}
     </div>
   );
