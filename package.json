@@ -21,6 +21,7 @@
     "test": "npm run smoke",
     "smoke": "node scripts/smoke-core.mjs",
     "doctor": "powershell -ExecutionPolicy Bypass -File ./scripts/doctor.ps1",
+    "mvp:check": "powershell -ExecutionPolicy Bypass -File ./scripts/mvp-check.ps1",
     "setup:dev": "powershell -ExecutionPolicy Bypass -File ./scripts/setup-dev.ps1",
     "review:local": "powershell -ExecutionPolicy Bypass -File ./scripts/review-local.ps1",
     "status:update": "powershell -ExecutionPolicy Bypass -File ./scripts/update-status-bundle.ps1",

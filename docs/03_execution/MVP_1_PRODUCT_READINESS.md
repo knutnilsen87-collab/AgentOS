@@ -40,6 +40,7 @@ Run:
 powershell -ExecutionPolicy Bypass -File .\scripts\doctor.ps1
 powershell -ExecutionPolicy Bypass -File .\scripts\validate.ps1
 powershell -ExecutionPolicy Bypass -File .\scripts\review-local.ps1
+npm run mvp:check
 powershell -ExecutionPolicy Bypass -File .\scripts\dev.ps1
 ```
 
@@ -52,6 +53,7 @@ Manual UI pass:
 - approve read-only or request rework
 - run verification from the runtime dock
 - confirm the task record updates under `.agentos/tasks`
+- record the result in `docs/03_execution/MVP_1_MANUAL_QA.md`
 
 ## MVP exit criteria
 MVP 1 is ready when automated checks pass and the manual UI pass succeeds once on this machine.

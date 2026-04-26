@@ -44,6 +44,14 @@ export function ReviewPackageCard({ task, bundlePreview, gitReview }: ReviewPack
           <p className="empty-state">{gitReview?.error ?? 'No changed files detected by Git review scan.'}</p>
         )}
       </div>
+      <div className="changed-files">
+        <p className="label">Tracked diff stat</p>
+        {gitReview?.diffStat.length ? (
+          <pre className="diff-stat">{gitReview.diffStat.join('\n')}</pre>
+        ) : (
+          <p className="empty-state">{gitReview?.error ?? 'No tracked diff stat yet.'}</p>
+        )}
+      </div>
       <pre className="bundle-preview">{bundlePreview}</pre>
     </article>
   );

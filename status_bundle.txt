@@ -1,6 +1,6 @@
 PROJECT: AgentOS
 PHASE: MVP 1 local-first product slice
-LAST_UPDATED: 2026-04-25 10:05:42
+LAST_UPDATED: 2026-04-26 06:27:48
 
 CURRENT_STATE:
 - Product definition exists.
@@ -26,11 +26,14 @@ CURRENT_STATE:
 - Electron preload bridge was fixed by switching preload to `preload.cjs`, removing preload Node path usage, and setting Electron `sandbox: false` with `contextIsolation: true`.
 - App now starts/validates local sandbox before project connection is enabled.
 - `scripts/dev.ps1` now fails clearly if port 5173 is already occupied.
+- `npm run mvp:check` now runs the automated MVP readiness gate and verifies the local dev server returns HTTP 200.
+- The right evidence rail can refresh Git review evidence from the UI.
+- The review package now renders tracked diff stat evidence.
+- Manual MVP acceptance is tracked in `docs/03_execution/MVP_1_MANUAL_QA.md`.
 
 NEXT_ACTIONS:
-- Run scripts/dev.ps1 for the required interactive MVP UI pass.
+- Run `npm run mvp:check`, then run `scripts/dev.ps1` for the required interactive MVP UI pass.
 - Fully quit old Electron/dev processes, restart `scripts/dev.ps1`, confirm header shows `Platform: win32` and sandbox `ready`, then click through project scan, mission input, plan generation, approval decision, Run verification, review package, and verification checklist.
 - Add deeper UI smoke coverage once a browser automation path is selected.
-- Create a curated baseline commit after deciding which historical starter artifacts should remain outside Git.
 - Add real diff detail rendering and command execution policy gates.
 - Begin MVP 2 only after the manual MVP 1 pass succeeds once on this machine.

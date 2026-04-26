@@ -1,6 +1,11 @@
 # Handoff notes
 
 ## What changed in this version
+- added `npm run mvp:check` as an automated MVP readiness gate
+- added `scripts/mvp-check.ps1` to run doctor, typecheck, build, smoke, local review, and a local dev-server HTTP 200 check
+- added `docs/03_execution/MVP_1_MANUAL_QA.md` for the required human Electron acceptance pass
+- added a right-rail Git evidence refresh action
+- surfaced tracked diff stat inside the review package card
 - fixed the Electron preload bridge by switching from ESM preload to `preload.cjs`, removing Node path usage from preload, and setting Electron `sandbox: false` with `contextIsolation: true`
 - added explicit sandbox initialization before project connection
 - disabled project connection until sandbox is ready
@@ -46,20 +51,21 @@
 - refreshed README, README_MASTER, and `status_bundle.txt` to match the actual code state
 
 ## Honest current state
-The first MVP product slice is now implemented in code and locally validated: dependencies installed, `scripts/doctor.ps1` passes, `scripts/validate.ps1` passes, the core smoke test passes, and the updated mission-control dev shell serves over Vite. The app now starts local sandbox state before enabling project connection; the Electron preload bridge should show `Platform: win32` in the desktop shell after a full Electron restart. The app can scan a project, generate and persist a task plan, persist an approval decision, run constrained smoke verification from the runtime dock, and save command evidence back into the task record. The remaining unverified item is an interactive manual UI pass where a user clicks through the full MVP workflow in the Electron window.
+The first MVP product slice is now implemented in code and locally validated: dependencies installed, `scripts/doctor.ps1` passes, `scripts/validate.ps1` passes, the core smoke test passes, and the updated mission-control dev shell serves over Vite. The app now starts local sandbox state before enabling project connection; the Electron preload bridge should show `Platform: win32` in the desktop shell after a full Electron restart. The app can scan a project, generate and persist a task plan, persist an approval decision, run constrained smoke verification from the runtime dock, refresh Git evidence, and save command evidence back into the task record. Automated readiness can now be re-run with `npm run mvp:check`. The remaining unverified item is an interactive manual UI pass where a user clicks through the full MVP workflow in the Electron window.
 
 ## Exact next operator steps
-1. Run `powershell -ExecutionPolicy Bypass -File .\scripts\dev.ps1`
-2. Confirm the header shows `Platform: win32`
-3. Confirm sandbox state becomes `ready`
-4. In the desktop shell, open `F:\prosjekter\AgentOS`
-5. Confirm the scan summary renders
-6. Generate a task plan
-7. Click `Approve read-only` or `Request rework`
-8. Click `Run verification`
-9. Confirm command evidence and verification checks update in the UI
-10. Confirm a task record is written and updated under `.agentos\tasks`
-11. Run `npm run review:local` before creating the first curated baseline commit
+1. Run `npm run mvp:check`
+2. Run `powershell -ExecutionPolicy Bypass -File .\scripts\dev.ps1`
+3. Confirm the header shows `Platform: win32`
+4. Confirm sandbox state becomes `ready`
+5. In the desktop shell, open `F:\prosjekter\AgentOS`
+6. Confirm the scan summary renders
+7. Generate a task plan
+8. Click `Approve read-only` or `Request rework`
+9. Click `Run verification`
+10. Confirm command evidence, Git evidence, diff stat, and verification checks update in the UI
+11. Confirm a task record is written and updated under `.agentos\tasks`
+12. Record the result in `docs/03_execution/MVP_1_MANUAL_QA.md`
 
 ## First milestone after setup
 The desktop shell opens against `F:\prosjekter\AgentOS`, scans a selected folder read-only, generates a reviewable task plan, and writes structured task records into `.agentos\tasks`.

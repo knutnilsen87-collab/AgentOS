@@ -209,6 +209,12 @@ h3 {
   border: 1px solid var(--line);
 }
 
+.button-compact {
+  min-height: 30px;
+  padding: 5px 9px;
+  font-size: 0.78rem;
+}
+
 .button:disabled {
   cursor: not-allowed;
   opacity: 0.55;
@@ -370,6 +376,19 @@ textarea {
   border-radius: 8px;
   background: rgba(4, 10, 13, 0.76);
   color: #f6f8f5;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.diff-stat {
+  max-height: 150px;
+  overflow: auto;
+  margin: 8px 0 0;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(4, 10, 13, 0.62);
+  color: #dbe7e4;
   white-space: pre-wrap;
   word-break: break-word;
 }

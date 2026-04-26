@@ -539,6 +539,8 @@ export function App() {
           selectedTask={selectedTask}
           checks={checks}
           gitReview={gitReview}
+          isBusy={isBusy}
+          onRefreshGitReview={() => void refreshGitReview()}
           onApproveReadOnly={() => void handleApprovalDecision('approved-read-only')}
           onRequestRework={() => void handleApprovalDecision('rework-requested')}
         />

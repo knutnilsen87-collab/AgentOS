@@ -8,6 +8,8 @@ interface RightEvidenceRailProps {
   selectedTask: TaskRecord | null;
   checks: VerificationCheck[];
   gitReview: GitReviewSummary | null;
+  isBusy: boolean;
+  onRefreshGitReview: () => void;
   onApproveReadOnly: () => void;
   onRequestRework: () => void;
 }
@@ -18,6 +20,8 @@ export function RightEvidenceRail({
   selectedTask,
   checks,
   gitReview,
+  isBusy,
+  onRefreshGitReview,
   onApproveReadOnly,
   onRequestRework
 }: RightEvidenceRailProps) {
@@ -31,7 +35,12 @@ export function RightEvidenceRail({
       />
 
       <section className="rail-section">
-        <h2>Evidence</h2>
+        <div className="section-header">
+          <h2>Evidence</h2>
+          <button type="button" className="button button-secondary button-compact" onClick={onRefreshGitReview} disabled={isBusy}>
+            Refresh
+          </button>
+        </div>
         <ul className="evidence-list">
           <li>
             <strong>Scanner</strong>
@@ -52,6 +61,10 @@ export function RightEvidenceRail({
           <li>
             <strong>Working tree</strong>
             <span>{gitReview?.hasUncommittedChanges ? 'changes present' : 'clean or no tracked changes'}</span>
+          </li>
+          <li>
+            <strong>Diff stat</strong>
+            <span>{gitReview?.diffStat.length ? `${gitReview.diffStat.length} lines` : gitReview?.error ?? 'no tracked diff stat'}</span>
           </li>
         </ul>
       </section>
